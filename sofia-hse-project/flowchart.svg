@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="1060" viewBox="0 0 1280 1060" role="img" aria-labelledby="title desc">
+<title id="title">Горе-инвестор. Ход партии и вечер на бирже</title><desc id="desc">Слева показан цикл дней и запись отчёта. Справа показаны действия на бирже, комиссия и ограничение в десять ходов.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L8 4 L0 8" fill="#355668"/></marker></defs><rect width="1280" height="1060" fill="#f6f7f4"/><style>text {font-family:'Segoe UI',Arial,sans-serif;fill:#183746} .body {font-size:17px} .label {font-size:15px;fill:#365f68} .head {font-size:26px;font-weight:bold}</style>
+<text x="40" y="54" class="head" text-anchor="start">Горе-инвестор</text>
+<text x="40" y="99" class="head" text-anchor="start">Ход партии</text>
+<text x="670" y="99" class="head" text-anchor="start">Вечер на бирже</text>
+<path d="M632 80 V1020" stroke="#cad8d6"/>
+<rect x="113" y="123" width="390" height="64" rx="30" fill="#dcefe9" stroke="#75909a" stroke-width="1.5"/>
+<text x="308" y="149.5" class="body" text-anchor="middle">Ввести размер семьи (3–7).</text>
+<text x="308" y="172.5" class="body" text-anchor="middle">Бюджет = 10 000 × размер семьи.</text>
+<path d="M308 187 V224" stroke="#355668" stroke-width="1.8" fill="none" marker-end="url(#arrow)"/>
+<rect x="113" y="224" width="390" height="60" rx="10" fill="#ffffff" stroke="#75909a" stroke-width="1.5"/>
+<text x="308" y="248.5" class="body" text-anchor="middle">Начать день. Создать запись</text>
+<text x="308" y="271.5" class="body" text-anchor="middle">с нулевыми суммами.</text>
+<path d="M308 284 V323" stroke="#355668" stroke-width="1.8" fill="none" marker-end="url(#arrow)"/>
+<path d="M308 323 l174 52 l-174 52 l-174 -52 Z" fill="#fff2d5" stroke="#97824a" stroke-width="1.5"/>
+<text x="308" y="369.5" class="body" text-anchor="middle">Есть следующий этап</text>
+<text x="308" y="390.5" class="body" text-anchor="middle">и деньги больше нуля?</text>
+<path d="M308 427 V464" stroke="#355668" stroke-width="1.8" fill="none" marker-end="url(#arrow)"/>
+<text x="329" y="451" class="label" text-anchor="middle">да</text>
+<rect x="117" y="464" width="382" height="142" rx="10" fill="#ffffff" stroke="#75909a" stroke-width="1.5"/>
+<text x="308" y="495" class="body" text-anchor="middle">Выполнить один этап по порядку</text>
+<text x="308" y="518" class="body" text-anchor="middle">1. Случайное событие</text>
+<text x="308" y="541" class="body" text-anchor="middle">2. Обед (после трёх пропусков купить)</text>
+<text x="308" y="564" class="body" text-anchor="middle">3. Биржа по желанию игрока</text>
+<text x="308" y="587" class="body" text-anchor="middle">4. Оплата трёх счетов</text>
+<path d="M117 535 H84 V375 H134" stroke="#355668" stroke-width="1.8" fill="none" marker-end="url(#arrow)"/>
+<path d="M482 375 H537 V657 H493" stroke="#355668" stroke-width="1.8" fill="none" marker-end="url(#arrow)"/>
+<text x="508" y="361" class="label" text-anchor="middle">нет</text>
+<rect x="123" y="626" width="370" height="62" rx="10" fill="#ffffff" stroke="#75909a" stroke-width="1.5"/>
+<text x="308" y="663" class="body" text-anchor="middle">Добавить запись дня в историю.</text>
+<path d="M308 688 V715" stroke="#355668" stroke-width="1.8" fill="none" marker-end="url(#arrow)"/>
+<path d="M308 715 l168 41 l-168 41 l-168 -41 Z" fill="#fff2d5" stroke="#97824a" stroke-width="1.5"/>
+<text x="308" y="761" class="body" text-anchor="middle">Бюджет больше нуля?</text>
+<path d="M308 797 V836" stroke="#355668" stroke-width="1.8" fill="none" marker-end="url(#arrow)"/>
+<text x="329" y="823" class="label" text-anchor="middle">да</text>
+<rect x="143" y="836" width="330" height="56" rx="10" fill="#ffffff" stroke="#75909a" stroke-width="1.5"/>
+<text x="308" y="870" class="body" text-anchor="middle">Засчитать прожитый день.</text>
+<path d="M308 892 V912" stroke="#355668" stroke-width="1.8" fill="none" marker-end="url(#arrow)"/>
+<path d="M308 912 l155 37 l-155 37 l-155 -37 Z" fill="#fff2d5" stroke="#97824a" stroke-width="1.5"/>
+<text x="308" y="954" class="body" text-anchor="middle">Начать новый день?</text>
+<path d="M153 949 H43 V254 H113" stroke="#355668" stroke-width="1.8" fill="none" marker-end="url(#arrow)"/>
+<text x="84" y="936" class="label" text-anchor="middle">да</text>
+<path d="M476 756 H548 V1018 H485" stroke="#355668" stroke-width="1.8" fill="none" marker-end="url(#arrow)"/>
+<text x="510" y="744" class="label" text-anchor="middle">нет</text>
+<path d="M308 986 V996" stroke="#355668" stroke-width="1.8" fill="none" marker-end="url(#arrow)"/>
+<text x="337" y="993" class="label" text-anchor="middle">нет</text>
+<rect x="131" y="996" width="354" height="44" rx="22" fill="#dcefe9" stroke="#75909a" stroke-width="1.5"/>
+<text x="308" y="1024" class="body" text-anchor="middle">Записать отчёт. Конец партии.</text>
+<rect x="719" y="123" width="448" height="64" rx="30" fill="#dcefe9" stroke="#75909a" stroke-width="1.5"/>
+<text x="943" y="149.5" class="body" text-anchor="middle">Запомнить стоимость денег и акций.</text>
+<text x="943" y="172.5" class="body" text-anchor="middle">Начать с хода 1.</text>
+<path d="M943 187 V219" stroke="#355668" stroke-width="1.8" fill="none" marker-end="url(#arrow)"/>
+<path d="M943 219 l172 48 l-172 48 l-172 -48 Z" fill="#fff2d5" stroke="#97824a" stroke-width="1.5"/>
+<text x="943" y="261.5" class="body" text-anchor="middle">Есть ход</text>
+<text x="943" y="282.5" class="body" text-anchor="middle">из десяти?</text>
+<path d="M943 315 V354" stroke="#355668" stroke-width="1.8" fill="none" marker-end="url(#arrow)"/>
+<text x="963" y="340" class="label" text-anchor="middle">да</text>
+<path d="M943 354 l172 48 l-172 48 l-172 -48 Z" fill="#fff2d5" stroke="#97824a" stroke-width="1.5"/>
+<text x="943" y="396.5" class="body" text-anchor="middle">Игрок выбрал</text>
+<text x="943" y="417.5" class="body" text-anchor="middle">«Уйти»?</text>
+<path d="M943 450 V484" stroke="#355668" stroke-width="1.8" fill="none" marker-end="url(#arrow)"/>
+<text x="967" y="473" class="label" text-anchor="middle">нет</text>
+<rect x="713" y="484" width="460" height="154" rx="10" fill="#ffffff" stroke="#75909a" stroke-width="1.5"/>
+<text x="943" y="521" class="body" text-anchor="middle">Купить при наличии денег, включая комиссию.</text>
+<text x="943" y="544" class="body" text-anchor="middle">Продать в пределах числа акций у семьи.</text>
+<text x="943" y="567" class="body" text-anchor="middle">За сделку удержать 50 руб.</text>
+<text x="943" y="590" class="body" text-anchor="middle">При ожидании или невозможной сделке</text>
+<text x="943" y="613" class="body" text-anchor="middle">сохранить деньги и акции.</text>
+<path d="M943 638 V666" stroke="#355668" stroke-width="1.8" fill="none" marker-end="url(#arrow)"/>
+<path d="M943 666 l182 44 l-182 44 l-182 -44 Z" fill="#fff2d5" stroke="#97824a" stroke-width="1.5"/>
+<text x="943" y="715" class="body" text-anchor="middle">Деньги закончились?</text>
+<path d="M943 754 V795" stroke="#355668" stroke-width="1.8" fill="none" marker-end="url(#arrow)"/>
+<text x="967" y="778" class="label" text-anchor="middle">нет</text>
+<rect x="743" y="795" width="400" height="70" rx="10" fill="#ffffff" stroke="#75909a" stroke-width="1.5"/>
+<text x="943" y="816" class="body" text-anchor="middle">Изменить цену на 50 руб. вверх или вниз.</text>
+<text x="943" y="837" class="body" text-anchor="middle">При цене 100 руб. поднять её до 150.</text>
+<text x="943" y="858" class="body" text-anchor="middle">Перейти к следующему ходу.</text>
+<path d="M743 830 H681 V267 H771" stroke="#355668" stroke-width="1.8" fill="none" marker-end="url(#arrow)"/>
+<path d="M1115 267 H1225 V947 H1167" stroke="#355668" stroke-width="1.8" fill="none" marker-end="url(#arrow)"/>
+<text x="1163" y="252" class="label" text-anchor="middle">нет</text>
+<path d="M1115 402 H1225 V442" stroke="#355668" stroke-width="1.8" fill="none" marker-end="url(#arrow)"/>
+<text x="1161" y="389" class="label" text-anchor="middle">да</text>
+<path d="M1125 710 H1225 V749" stroke="#355668" stroke-width="1.8" fill="none" marker-end="url(#arrow)"/>
+<text x="1162" y="696" class="label" text-anchor="middle">да</text>
+<rect x="719" y="907" width="448" height="80" rx="26" fill="#dcefe9" stroke="#75909a" stroke-width="1.5"/>
+<text x="943" y="930" class="body" text-anchor="middle">Записать изменение стоимости денег и акций.</text>
+<text x="943" y="953" class="body" text-anchor="middle">Вернуть бюджет, число акций и цену.</text>
+<text x="943" y="976" class="body" text-anchor="middle">Продолжить день.</text>
+</svg>
