@@ -36,6 +36,82 @@ def lunch(family, day, skipped_days):
     return cost
 
 
+def trade(budget, shares, price, record):
+    fee = 50
+    print(f"Комиссия за одну покупку или продажу: {fee} руб.")
+    start_value = shares * price + budget
+
+    for move in range(1, 11):
+        print(f"Ход {move}/10. Цена: {price} руб. Деньги: {budget} руб. Акции: {shares}")
+        action = ask_number("1) Купить 2) Продать 3) Ждать 4) Уйти", 1, 4)
+
+        if action == 4:
+            break
+
+        if budget <= 0:
+            break
+
+        if action == 1:
+            limit = (budget - fee) // price
+            if limit >= 1:
+                count = ask_number(f"Сколько купить (1-{limit})? ", 1, limit)
+                cost = count * price + fee
+                budget -= cost
+                shares += count
+                record["потрачено"] += cost
+            else:
+                print("На покупку с комиссией не хватает денег.")
+
+        if action == 2:
+            if shares > 0:
+                count = ask_number(f"Сколько продать (1-{shares})? ", 1, shares)
+                income = count * price - fee
+                budget += income
+                shares -= count
+                record["получено"] += income
+            else:
+                print("У вас нет акций для продажи.")
+
+        price = next_price(price)
+        print(f"Новая цена: {price} руб.")
+
+    end_value = shares * price + budget
+    record["биржа"] = end_value - start_value
+    return budget, shares, price
+
+
+def next_price(price):
+    if price <= 100:
+        return 150
+    return price + random.choice([-50, 50])
+
+
+def bills(family):
+    expenses = {
+        "Транспорт": 150 * family,
+        "Связь": 50 * family,
+        "Коммунальные услуги": 300,
+        "Wi-Fi": 800
+    }
+
+    details = ", ".join(f"{name}: {cost}" for name, cost in expenses.items())
+    print(details, "руб.")
+    return sum(expenses.values())
+
+
+def save_report(history, days_lived, budget, shares, price):
+    market_total = 0
+    file_name = "investor_report.txt"
+    with open(file_name, "w") as file:
+        file.write(f"Горе-инвестор. {reason}\n")
+        file.write(f"Прожито полных дней: {days_lived}\n")
+        for record in history:
+            market_total += record["биржа"]
+            file.write(f"День {record['день']}. Получено: {record["получено"]} руб, "
+                       f"потрачено: {record["потрачено"]}, результат биржи: {record['биржа']}\n")
+        file.write(f"Общий результат на бирже: {market_total} руб.\n")
+        file.write(f"Остаток денег: {budget} руб. Акций: {shares} по {price} руб.\n")
+    print(f"Отчёт записан в {file_name}")
 
 events = {
     "Нашли деньги в куртке.": 500,
@@ -52,6 +128,11 @@ print(f'Количество членов семьи: {family}, бюджет с�
 budget = start_budget
 days_lived = 0
 skipped_days = []
+shares = 0
+price = 300
+
+history = []
+
 print("Если в бюджете останется ноль рублей или меньше, игра закончится.")
 
 while budget > 0:
@@ -77,11 +158,19 @@ while budget > 0:
 
     # Вечер (биржа)
     if budget > 0:
-        # Игра на бирже
-        pass
+        visit = ask_number("Вечер. 1) На биржу 2) Пропустить: ", 1, 2)
+        if visit == 1:
+           budget, shares, price = trade(budget, shares, price, record)
 
+    # Обязательные траты
+    if budget > 0:
+        cost = bills(family)
+        budget -= cost
+        record["потрачено"] += cost
 
-    print(f"Осталось денег: {budget} руб.")
+    history.append(record)
+
+    print(f"Осталось денег: {budget} руб. Акций: {shares}")
 
     if budget <= 0:
         reason = "Банкротство"
@@ -93,3 +182,4 @@ while budget > 0:
             break
 
 print(f'\nИгра окончена. Причина: {reason}. Прожито игровых дней: {days_lived}')
+save_report(history, days_lived, budget, shares, price)
