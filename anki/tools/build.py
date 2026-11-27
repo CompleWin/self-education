@@ -1,6 +1,6 @@
 """Собирает колоды Anki из папок тем в anki/decks/.
 
-Каждая тема лежит в своей папке: anki/decks/<источник>/<тема>/
+Каждая тема лежит в своей папке: anki/decks/<путь курса>/<тема>/
     cards.txt     карточки (формат описан в docs/ANKI.md)
     figures.py    скрипт картинок (необязательно)
     media/        картинки
@@ -12,9 +12,9 @@
     uv run --no-project --with genanki python anki/tools/build.py            # все темы
     ... build.py <папка темы> --preview   # ещё и preview.html для проверки в браузере
 
-GUID заметки = соль + путь папки темы + ID карточки. Поэтому папку темы
-не переименовывают, а ID не меняют: иначе Anki сочтёт карточку новой
-и прогресс повторения потеряется.
+GUID заметки = соль + ключ темы + ID карточки. По умолчанию ключ темы
+равен пути её папки внутри decks/. При переносе STABLE_KEY хранит прежний
+ключ для GUID и имён медиафайлов.
 """
 
 import hashlib
@@ -36,7 +36,7 @@ MODEL_NAME = "Вопрос и ответ (конспекты)"
 # Соль GUID не менять: по ней Anki узнаёт уже импортированные карточки.
 GUID_SALT = "ml-journey"
 
-HEADER_RE = re.compile(r"^(DECK|SOURCE|TAGS):\s*(.*)$")
+HEADER_RE = re.compile(r"^(DECK|SOURCE|TAGS|STABLE_KEY):\s*(.*)$")
 KEY_RE = re.compile(r"^(ID|Q|QIMG|A|IMG|SRC):\s?(.*)$")
 OLD_KEY_RE = re.compile(r"^(TYPE|E):")
 MATH_RE = re.compile(r"\$\$(.+?)\$\$|\$(.+?)\$")
@@ -126,6 +126,7 @@ class Topic:
     folder: Path
     deck: str = ""
     source: str = ""
+    stable_key: str = ""
     tags: list = field(default_factory=list)
     cards: list = field(default_factory=list)
 
@@ -134,8 +135,12 @@ class Topic:
         return self.folder.relative_to(DECKS).as_posix()
 
     @property
+    def identity(self):
+        return self.stable_key or self.key
+
+    @property
     def media_prefix(self):
-        return "mlj_" + re.sub(r"[^0-9A-Za-z]+", "_", self.key).strip("_") + "__"
+        return "mlj_" + re.sub(r"[^0-9A-Za-z]+", "_", self.identity).strip("_") + "__"
 
 
 def parse(folder):
@@ -304,7 +309,7 @@ def notes(topic, media_dir):
             fields=[render(card.q), picture(card.qimg), render(card.a),
                     picture(card.img), html.escape(card.src), card.id],
             tags=topic.tags,
-            guid_parts=(GUID_SALT, topic.key, card.id),
+            guid_parts=(GUID_SALT, topic.identity, card.id),
         ))
     return rows, media
 
